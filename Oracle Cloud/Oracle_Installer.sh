@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installation script for wireguard using an Oracle Cloud VPS
-# https://github.com/mochman/Bypass_CGNAT
+# https://github.com/jusemon/homeserver
 
 if [ $EUID != 0 ]; then
   sudo "$0" "$@"
@@ -296,7 +296,7 @@ setup_firewall () {
   read -r -p $'  \e[36mActivate rules? [Y/n]\e[0m' UFW_ON
   if [[ ! "$UFW_ON" =~ ^([yY][eE][sS]|[yY]|"")$ ]]; then
     echo "  Firewall not enabled"
-    echo -e "  You should limit access to your server by using ufw as described in \e[94;4mhttps://github.com/mochman/Bypass_CGNAT/wiki/Limiting-Access\e[0m"
+    echo -e "  You should limit access to your server by using ufw as described in \e[94;4mhttps://github.com/jusemon/homeserver/wiki/Limiting-Access\e[0m"
     exit
   else
     ufw --force enable >/dev/null
@@ -372,7 +372,7 @@ ask_firewall () {
   else
     read -r -p $'\e[36mWould you like this script to configure your firewall? [Y/n]\e[0m' UFW_YN
     if [[ ! "$UFW_YN" =~ ^([yY][eE][sS]|[yY]|"")$ ]]; then
-      echo -e "You should limit access to your server by using ufw as described in \e[94;4mhttps://github.com/mochman/Bypass_CGNAT/wiki/Limiting-Access\e[0m"
+      echo -e "You should limit access to your server by using ufw as described in \e[94;4mhttps://github.com/jusemon/homeserver/wiki/Limiting-Access\e[0m"
       exit
     else
       clear_firewall
@@ -458,7 +458,7 @@ else
   SERVERTYPE=1
   echo ""
   echo -e "Make sure you have followed the Opening Up Ports section found on:"
-  echo -e "${LBU}https://github.com/mochman/Bypass_CGNAT/wiki/Oracle-Cloud--(Opening-Up-Ports)${NC}"
+  echo -e "${LBU}https://github.com/jusemon/homeserver/wiki/Oracle-Cloud--(Opening-Up-Ports)${NC}"
   echo ""
   echo "Please have a terminal window running on both your VPS and your Local Server"
   echo "since this script will ask you to input information into/from each other."
